@@ -1,3 +1,11 @@
 tasks:
   - init: yarn bootstrap
+    env:
+      GOOGLE_CLIENT_ID: 840639586242-dnp0j7dgbljovha0ud2huj9f8q9g4b08.apps.googleusercontent.com
+      GOOGLE_CLIENT_SECRET: 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
     command: yarn run dev
+ports:
+  - port: 3000
+    onOpen: open-preview
+  - port: 8080
+    onOpen: ignore
