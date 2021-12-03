@@ -31,9 +31,11 @@ async function generateKeys() {
     // Construct the values of all the necessary keys
     const AUTH_PRIVATE_KEY = { type: "RS256", key: privateKey };
     const AUTH_PUBLIC_KEY = { type: "RS256", key: publicKey };
-    const frontendEnv = `${frontendEnvironmentVariables}AUTH_PRIVATE_KEY='${JSON.stringify(
-      AUTH_PRIVATE_KEY
-    )}'`;
+    const frontendEnv = `${frontendEnvironmentVariables}
+    AUTH_PRIVATE_KEY='${JSON.stringify(AUTH_PRIVATE_KEY)}'
+    GOOGLE_CLIENT_ID='${process.env.GOOGLE_CLIENT_ID}'
+    GOOGLE_CLIENT_SECRET='${process.env.GOOGLE_CLIENT_SECRET}'
+    `;
 
     // Write the contents into the .env file
     fs.writeFileSync("frontend/.env", frontendEnv);
