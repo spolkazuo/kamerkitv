@@ -6,6 +6,7 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
 import ISession from "types/session";
+import "tailwindcss/tailwind.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const { session }: { session: ISession } = pageProps;
