@@ -14,14 +14,20 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function FilterDoubleSelect({ labelName, selectOptions }: any) {
+export default function FilterDoubleSelect({
+  labelName,
+  selectOptions,
+}: {
+  labelName: string;
+  selectOptions: { id: number; name: string }[];
+}) {
   const [selectedFirst, setSelectedFirst] = useState(selectOptions[0]);
   const [selectedSecond, setSelectedSecond] = useState(
     selectOptions[selectOptions.length - 1]
   );
 
   return (
-    <div className={"mb-3"}>
+    <div className={"mb-3 min-w-full"}>
       <span className="block text-sm font-medium text-gray-700">
         {labelName}
       </span>
@@ -29,7 +35,7 @@ export default function FilterDoubleSelect({ labelName, selectOptions }: any) {
         <Listbox value={selectedFirst} onChange={setSelectedFirst}>
           {({ open }) => (
             <>
-              <div className="mt-1 relative  min-w-doubleFiltersSize">
+              <div className="mt-1 relative min-w-doubleFiltersSize">
                 <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                   <span className="block truncate">{selectedFirst.name}</span>
                   <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -99,7 +105,7 @@ export default function FilterDoubleSelect({ labelName, selectOptions }: any) {
         <Listbox value={selectedSecond} onChange={setSelectedSecond}>
           {({ open }) => (
             <>
-              <div className="mt-1 relative  min-w-doubleFiltersSize">
+              <div className="mt-1 relative min-w-doubleFiltersSize">
                 <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                   <span className="block truncate">{selectedSecond.name}</span>
                   <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">

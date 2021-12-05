@@ -1,8 +1,12 @@
 import React from "react";
-import FiltersComponent from "components/Filters";
+import Card from "components/Card";
 
 const IndexPageComponent = () => {
-  return <div>123</div>;
+  return (
+    <>
+      <Card />
+    </>
+  );
 };
 
 export default IndexPageComponent;

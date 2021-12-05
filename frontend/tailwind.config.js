@@ -9,11 +9,12 @@ module.exports = {
       "1/2": "50%",
       "3/4": "75%",
       full: "100%",
-      doubleFiltersSize: "170.1px",
+      doubleFiltersSize: "calc(50% - 17.4px)",
+      filteredContainer: "351px",
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };

@@ -95,12 +95,12 @@ const Navbar: NextComponentType = () => {
   };
 
   return (
-    <div className="relative bg-gray-800">
+    <div className="sticky bg-gray-800 lg:relative top-0 z-10">
       <div
         className="hidden sm:block sm:absolute sm:inset-0"
         aria-hidden="true"
       />
-      <div className="relative pt-6 pb-5 sm:pb-10">
+      <div className="relative pt-5 pb-5 sm:pb-5">
         <Popover>
           <nav
             className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
