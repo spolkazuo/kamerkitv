@@ -9,17 +9,19 @@ import * as React from "react";
 import * as ApolloReactComponents from "@apollo/client/react/components";
 import * as ApolloReactHoc from "@apollo/client/react/hoc";
 export type Maybe<T> = T | undefined;
+export type InputMaybe<T> = T | undefined;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
 };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 export type RequireFields<T, K extends keyof T> = {
   [X in Exclude<keyof T, K>]?: T[X];
-} &
-  { [P in K]-?: NonNullable<T[P]> };
+} & { [P in K]-?: NonNullable<T[P]> };
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 const defaultOptions = {};
 /** All built-in and custom scalars, mapped to their actual values */
@@ -35,48 +37,48 @@ export type Scalars = {
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
 export type Int_Comparison_Exp = {
-  _eq?: Maybe<Scalars["Int"]>;
-  _gt?: Maybe<Scalars["Int"]>;
-  _gte?: Maybe<Scalars["Int"]>;
-  _in?: Maybe<Array<Scalars["Int"]>>;
-  _is_null?: Maybe<Scalars["Boolean"]>;
-  _lt?: Maybe<Scalars["Int"]>;
-  _lte?: Maybe<Scalars["Int"]>;
-  _neq?: Maybe<Scalars["Int"]>;
-  _nin?: Maybe<Array<Scalars["Int"]>>;
+  _eq?: InputMaybe<Scalars["Int"]>;
+  _gt?: InputMaybe<Scalars["Int"]>;
+  _gte?: InputMaybe<Scalars["Int"]>;
+  _in?: InputMaybe<Array<Scalars["Int"]>>;
+  _is_null?: InputMaybe<Scalars["Boolean"]>;
+  _lt?: InputMaybe<Scalars["Int"]>;
+  _lte?: InputMaybe<Scalars["Int"]>;
+  _neq?: InputMaybe<Scalars["Int"]>;
+  _nin?: InputMaybe<Array<Scalars["Int"]>>;
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
-  _eq?: Maybe<Scalars["String"]>;
-  _gt?: Maybe<Scalars["String"]>;
-  _gte?: Maybe<Scalars["String"]>;
+  _eq?: InputMaybe<Scalars["String"]>;
+  _gt?: InputMaybe<Scalars["String"]>;
+  _gte?: InputMaybe<Scalars["String"]>;
   /** does the column match the given case-insensitive pattern */
-  _ilike?: Maybe<Scalars["String"]>;
-  _in?: Maybe<Array<Scalars["String"]>>;
+  _ilike?: InputMaybe<Scalars["String"]>;
+  _in?: InputMaybe<Array<Scalars["String"]>>;
   /** does the column match the given POSIX regular expression, case insensitive */
-  _iregex?: Maybe<Scalars["String"]>;
-  _is_null?: Maybe<Scalars["Boolean"]>;
+  _iregex?: InputMaybe<Scalars["String"]>;
+  _is_null?: InputMaybe<Scalars["Boolean"]>;
   /** does the column match the given pattern */
-  _like?: Maybe<Scalars["String"]>;
-  _lt?: Maybe<Scalars["String"]>;
-  _lte?: Maybe<Scalars["String"]>;
-  _neq?: Maybe<Scalars["String"]>;
+  _like?: InputMaybe<Scalars["String"]>;
+  _lt?: InputMaybe<Scalars["String"]>;
+  _lte?: InputMaybe<Scalars["String"]>;
+  _neq?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given case-insensitive pattern */
-  _nilike?: Maybe<Scalars["String"]>;
-  _nin?: Maybe<Array<Scalars["String"]>>;
+  _nilike?: InputMaybe<Scalars["String"]>;
+  _nin?: InputMaybe<Array<Scalars["String"]>>;
   /** does the column NOT match the given POSIX regular expression, case insensitive */
-  _niregex?: Maybe<Scalars["String"]>;
+  _niregex?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given pattern */
-  _nlike?: Maybe<Scalars["String"]>;
+  _nlike?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given POSIX regular expression, case sensitive */
-  _nregex?: Maybe<Scalars["String"]>;
+  _nregex?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given SQL regular expression */
-  _nsimilar?: Maybe<Scalars["String"]>;
+  _nsimilar?: InputMaybe<Scalars["String"]>;
   /** does the column match the given POSIX regular expression, case sensitive */
-  _regex?: Maybe<Scalars["String"]>;
+  _regex?: InputMaybe<Scalars["String"]>;
   /** does the column match the given SQL regular expression */
-  _similar?: Maybe<Scalars["String"]>;
+  _similar?: InputMaybe<Scalars["String"]>;
 };
 
 /** columns and relationships of "accounts" */
@@ -112,26 +114,26 @@ export type Accounts_Aggregate_Fields = {
 
 /** aggregate fields of "accounts" */
 export type Accounts_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Accounts_Select_Column>>;
-  distinct?: Maybe<Scalars["Boolean"]>;
+  columns?: InputMaybe<Array<Accounts_Select_Column>>;
+  distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** Boolean expression to filter rows from the table "accounts". All fields are combined with a logical 'AND'. */
 export type Accounts_Bool_Exp = {
-  _and?: Maybe<Array<Accounts_Bool_Exp>>;
-  _not?: Maybe<Accounts_Bool_Exp>;
-  _or?: Maybe<Array<Accounts_Bool_Exp>>;
-  access_token?: Maybe<String_Comparison_Exp>;
-  access_token_expires?: Maybe<Timestamptz_Comparison_Exp>;
-  compound_id?: Maybe<String_Comparison_Exp>;
-  created_at?: Maybe<Timestamptz_Comparison_Exp>;
-  id?: Maybe<Uuid_Comparison_Exp>;
-  provider_account_id?: Maybe<String_Comparison_Exp>;
-  provider_id?: Maybe<String_Comparison_Exp>;
-  provider_type?: Maybe<String_Comparison_Exp>;
-  refresh_token?: Maybe<String_Comparison_Exp>;
-  updated_at?: Maybe<Timestamptz_Comparison_Exp>;
-  user_id?: Maybe<Uuid_Comparison_Exp>;
+  _and?: InputMaybe<Array<Accounts_Bool_Exp>>;
+  _not?: InputMaybe<Accounts_Bool_Exp>;
+  _or?: InputMaybe<Array<Accounts_Bool_Exp>>;
+  access_token?: InputMaybe<String_Comparison_Exp>;
+  access_token_expires?: InputMaybe<Timestamptz_Comparison_Exp>;
+  compound_id?: InputMaybe<String_Comparison_Exp>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  provider_account_id?: InputMaybe<String_Comparison_Exp>;
+  provider_id?: InputMaybe<String_Comparison_Exp>;
+  provider_type?: InputMaybe<String_Comparison_Exp>;
+  refresh_token?: InputMaybe<String_Comparison_Exp>;
+  updated_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  user_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "accounts" */
@@ -142,17 +144,17 @@ export enum Accounts_Constraint {
 
 /** input type for inserting data into table "accounts" */
 export type Accounts_Insert_Input = {
-  access_token?: Maybe<Scalars["String"]>;
-  access_token_expires?: Maybe<Scalars["timestamptz"]>;
-  compound_id?: Maybe<Scalars["String"]>;
-  created_at?: Maybe<Scalars["timestamptz"]>;
-  id?: Maybe<Scalars["uuid"]>;
-  provider_account_id?: Maybe<Scalars["String"]>;
-  provider_id?: Maybe<Scalars["String"]>;
-  provider_type?: Maybe<Scalars["String"]>;
-  refresh_token?: Maybe<Scalars["String"]>;
-  updated_at?: Maybe<Scalars["timestamptz"]>;
-  user_id?: Maybe<Scalars["uuid"]>;
+  access_token?: InputMaybe<Scalars["String"]>;
+  access_token_expires?: InputMaybe<Scalars["timestamptz"]>;
+  compound_id?: InputMaybe<Scalars["String"]>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  provider_account_id?: InputMaybe<Scalars["String"]>;
+  provider_id?: InputMaybe<Scalars["String"]>;
+  provider_type?: InputMaybe<Scalars["String"]>;
+  refresh_token?: InputMaybe<Scalars["String"]>;
+  updated_at?: InputMaybe<Scalars["timestamptz"]>;
+  user_id?: InputMaybe<Scalars["uuid"]>;
 };
 
 /** aggregate max on columns */
@@ -200,22 +202,22 @@ export type Accounts_Mutation_Response = {
 export type Accounts_On_Conflict = {
   constraint: Accounts_Constraint;
   update_columns?: Array<Accounts_Update_Column>;
-  where?: Maybe<Accounts_Bool_Exp>;
+  where?: InputMaybe<Accounts_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "accounts". */
 export type Accounts_Order_By = {
-  access_token?: Maybe<Order_By>;
-  access_token_expires?: Maybe<Order_By>;
-  compound_id?: Maybe<Order_By>;
-  created_at?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-  provider_account_id?: Maybe<Order_By>;
-  provider_id?: Maybe<Order_By>;
-  provider_type?: Maybe<Order_By>;
-  refresh_token?: Maybe<Order_By>;
-  updated_at?: Maybe<Order_By>;
-  user_id?: Maybe<Order_By>;
+  access_token?: InputMaybe<Order_By>;
+  access_token_expires?: InputMaybe<Order_By>;
+  compound_id?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  provider_account_id?: InputMaybe<Order_By>;
+  provider_id?: InputMaybe<Order_By>;
+  provider_type?: InputMaybe<Order_By>;
+  refresh_token?: InputMaybe<Order_By>;
+  updated_at?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: accounts */
@@ -251,17 +253,17 @@ export enum Accounts_Select_Column {
 
 /** input type for updating data in table "accounts" */
 export type Accounts_Set_Input = {
-  access_token?: Maybe<Scalars["String"]>;
-  access_token_expires?: Maybe<Scalars["timestamptz"]>;
-  compound_id?: Maybe<Scalars["String"]>;
-  created_at?: Maybe<Scalars["timestamptz"]>;
-  id?: Maybe<Scalars["uuid"]>;
-  provider_account_id?: Maybe<Scalars["String"]>;
-  provider_id?: Maybe<Scalars["String"]>;
-  provider_type?: Maybe<Scalars["String"]>;
-  refresh_token?: Maybe<Scalars["String"]>;
-  updated_at?: Maybe<Scalars["timestamptz"]>;
-  user_id?: Maybe<Scalars["uuid"]>;
+  access_token?: InputMaybe<Scalars["String"]>;
+  access_token_expires?: InputMaybe<Scalars["timestamptz"]>;
+  compound_id?: InputMaybe<Scalars["String"]>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  provider_account_id?: InputMaybe<Scalars["String"]>;
+  provider_id?: InputMaybe<Scalars["String"]>;
+  provider_type?: InputMaybe<Scalars["String"]>;
+  refresh_token?: InputMaybe<Scalars["String"]>;
+  updated_at?: InputMaybe<Scalars["timestamptz"]>;
+  user_id?: InputMaybe<Scalars["uuid"]>;
 };
 
 /** update columns of table "accounts" */
@@ -297,6 +299,7 @@ export type Feeds = {
   author?: Maybe<Users>;
   author_id: Scalars["uuid"];
   body: Scalars["String"];
+  buka?: Maybe<Scalars["String"]>;
   created_at: Scalars["timestamptz"];
   id: Scalars["uuid"];
   updated_at: Scalars["timestamptz"];
@@ -319,35 +322,36 @@ export type Feeds_Aggregate_Fields = {
 
 /** aggregate fields of "feeds" */
 export type Feeds_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Feeds_Select_Column>>;
-  distinct?: Maybe<Scalars["Boolean"]>;
+  columns?: InputMaybe<Array<Feeds_Select_Column>>;
+  distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** order by aggregate values of table "feeds" */
 export type Feeds_Aggregate_Order_By = {
-  count?: Maybe<Order_By>;
-  max?: Maybe<Feeds_Max_Order_By>;
-  min?: Maybe<Feeds_Min_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Feeds_Max_Order_By>;
+  min?: InputMaybe<Feeds_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "feeds" */
 export type Feeds_Arr_Rel_Insert_Input = {
   data: Array<Feeds_Insert_Input>;
   /** on conflict condition */
-  on_conflict?: Maybe<Feeds_On_Conflict>;
+  on_conflict?: InputMaybe<Feeds_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "feeds". All fields are combined with a logical 'AND'. */
 export type Feeds_Bool_Exp = {
-  _and?: Maybe<Array<Feeds_Bool_Exp>>;
-  _not?: Maybe<Feeds_Bool_Exp>;
-  _or?: Maybe<Array<Feeds_Bool_Exp>>;
-  author?: Maybe<Users_Bool_Exp>;
-  author_id?: Maybe<Uuid_Comparison_Exp>;
-  body?: Maybe<String_Comparison_Exp>;
-  created_at?: Maybe<Timestamptz_Comparison_Exp>;
-  id?: Maybe<Uuid_Comparison_Exp>;
-  updated_at?: Maybe<Timestamptz_Comparison_Exp>;
+  _and?: InputMaybe<Array<Feeds_Bool_Exp>>;
+  _not?: InputMaybe<Feeds_Bool_Exp>;
+  _or?: InputMaybe<Array<Feeds_Bool_Exp>>;
+  author?: InputMaybe<Users_Bool_Exp>;
+  author_id?: InputMaybe<Uuid_Comparison_Exp>;
+  body?: InputMaybe<String_Comparison_Exp>;
+  buka?: InputMaybe<String_Comparison_Exp>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  updated_at?: InputMaybe<Timestamptz_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "feeds" */
@@ -358,12 +362,13 @@ export enum Feeds_Constraint {
 
 /** input type for inserting data into table "feeds" */
 export type Feeds_Insert_Input = {
-  author?: Maybe<Users_Obj_Rel_Insert_Input>;
-  author_id?: Maybe<Scalars["uuid"]>;
-  body?: Maybe<Scalars["String"]>;
-  created_at?: Maybe<Scalars["timestamptz"]>;
-  id?: Maybe<Scalars["uuid"]>;
-  updated_at?: Maybe<Scalars["timestamptz"]>;
+  author?: InputMaybe<Users_Obj_Rel_Insert_Input>;
+  author_id?: InputMaybe<Scalars["uuid"]>;
+  body?: InputMaybe<Scalars["String"]>;
+  buka?: InputMaybe<Scalars["String"]>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  updated_at?: InputMaybe<Scalars["timestamptz"]>;
 };
 
 /** aggregate max on columns */
@@ -371,6 +376,7 @@ export type Feeds_Max_Fields = {
   __typename?: "feeds_max_fields";
   author_id?: Maybe<Scalars["uuid"]>;
   body?: Maybe<Scalars["String"]>;
+  buka?: Maybe<Scalars["String"]>;
   created_at?: Maybe<Scalars["timestamptz"]>;
   id?: Maybe<Scalars["uuid"]>;
   updated_at?: Maybe<Scalars["timestamptz"]>;
@@ -378,11 +384,12 @@ export type Feeds_Max_Fields = {
 
 /** order by max() on columns of table "feeds" */
 export type Feeds_Max_Order_By = {
-  author_id?: Maybe<Order_By>;
-  body?: Maybe<Order_By>;
-  created_at?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-  updated_at?: Maybe<Order_By>;
+  author_id?: InputMaybe<Order_By>;
+  body?: InputMaybe<Order_By>;
+  buka?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  updated_at?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -390,6 +397,7 @@ export type Feeds_Min_Fields = {
   __typename?: "feeds_min_fields";
   author_id?: Maybe<Scalars["uuid"]>;
   body?: Maybe<Scalars["String"]>;
+  buka?: Maybe<Scalars["String"]>;
   created_at?: Maybe<Scalars["timestamptz"]>;
   id?: Maybe<Scalars["uuid"]>;
   updated_at?: Maybe<Scalars["timestamptz"]>;
@@ -397,11 +405,12 @@ export type Feeds_Min_Fields = {
 
 /** order by min() on columns of table "feeds" */
 export type Feeds_Min_Order_By = {
-  author_id?: Maybe<Order_By>;
-  body?: Maybe<Order_By>;
-  created_at?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-  updated_at?: Maybe<Order_By>;
+  author_id?: InputMaybe<Order_By>;
+  body?: InputMaybe<Order_By>;
+  buka?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  updated_at?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "feeds" */
@@ -417,17 +426,18 @@ export type Feeds_Mutation_Response = {
 export type Feeds_On_Conflict = {
   constraint: Feeds_Constraint;
   update_columns?: Array<Feeds_Update_Column>;
-  where?: Maybe<Feeds_Bool_Exp>;
+  where?: InputMaybe<Feeds_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "feeds". */
 export type Feeds_Order_By = {
-  author?: Maybe<Users_Order_By>;
-  author_id?: Maybe<Order_By>;
-  body?: Maybe<Order_By>;
-  created_at?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-  updated_at?: Maybe<Order_By>;
+  author?: InputMaybe<Users_Order_By>;
+  author_id?: InputMaybe<Order_By>;
+  body?: InputMaybe<Order_By>;
+  buka?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  updated_at?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: feeds */
@@ -442,6 +452,8 @@ export enum Feeds_Select_Column {
   /** column name */
   Body = "body",
   /** column name */
+  Buka = "buka",
+  /** column name */
   CreatedAt = "created_at",
   /** column name */
   Id = "id",
@@ -451,11 +463,12 @@ export enum Feeds_Select_Column {
 
 /** input type for updating data in table "feeds" */
 export type Feeds_Set_Input = {
-  author_id?: Maybe<Scalars["uuid"]>;
-  body?: Maybe<Scalars["String"]>;
-  created_at?: Maybe<Scalars["timestamptz"]>;
-  id?: Maybe<Scalars["uuid"]>;
-  updated_at?: Maybe<Scalars["timestamptz"]>;
+  author_id?: InputMaybe<Scalars["uuid"]>;
+  body?: InputMaybe<Scalars["String"]>;
+  buka?: InputMaybe<Scalars["String"]>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  updated_at?: InputMaybe<Scalars["timestamptz"]>;
 };
 
 /** update columns of table "feeds" */
@@ -464,6 +477,8 @@ export enum Feeds_Update_Column {
   AuthorId = "author_id",
   /** column name */
   Body = "body",
+  /** column name */
+  Buka = "buka",
   /** column name */
   CreatedAt = "created_at",
   /** column name */
@@ -590,122 +605,122 @@ export type Mutation_RootDelete_Verification_Requests_By_PkArgs = {
 /** mutation root */
 export type Mutation_RootInsert_AccountsArgs = {
   objects: Array<Accounts_Insert_Input>;
-  on_conflict?: Maybe<Accounts_On_Conflict>;
+  on_conflict?: InputMaybe<Accounts_On_Conflict>;
 };
 
 /** mutation root */
 export type Mutation_RootInsert_Accounts_OneArgs = {
   object: Accounts_Insert_Input;
-  on_conflict?: Maybe<Accounts_On_Conflict>;
+  on_conflict?: InputMaybe<Accounts_On_Conflict>;
 };
 
 /** mutation root */
 export type Mutation_RootInsert_FeedsArgs = {
   objects: Array<Feeds_Insert_Input>;
-  on_conflict?: Maybe<Feeds_On_Conflict>;
+  on_conflict?: InputMaybe<Feeds_On_Conflict>;
 };
 
 /** mutation root */
 export type Mutation_RootInsert_Feeds_OneArgs = {
   object: Feeds_Insert_Input;
-  on_conflict?: Maybe<Feeds_On_Conflict>;
+  on_conflict?: InputMaybe<Feeds_On_Conflict>;
 };
 
 /** mutation root */
 export type Mutation_RootInsert_SessionsArgs = {
   objects: Array<Sessions_Insert_Input>;
-  on_conflict?: Maybe<Sessions_On_Conflict>;
+  on_conflict?: InputMaybe<Sessions_On_Conflict>;
 };
 
 /** mutation root */
 export type Mutation_RootInsert_Sessions_OneArgs = {
   object: Sessions_Insert_Input;
-  on_conflict?: Maybe<Sessions_On_Conflict>;
+  on_conflict?: InputMaybe<Sessions_On_Conflict>;
 };
 
 /** mutation root */
 export type Mutation_RootInsert_UsersArgs = {
   objects: Array<Users_Insert_Input>;
-  on_conflict?: Maybe<Users_On_Conflict>;
+  on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 /** mutation root */
 export type Mutation_RootInsert_Users_OneArgs = {
   object: Users_Insert_Input;
-  on_conflict?: Maybe<Users_On_Conflict>;
+  on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 /** mutation root */
 export type Mutation_RootInsert_Verification_RequestsArgs = {
   objects: Array<Verification_Requests_Insert_Input>;
-  on_conflict?: Maybe<Verification_Requests_On_Conflict>;
+  on_conflict?: InputMaybe<Verification_Requests_On_Conflict>;
 };
 
 /** mutation root */
 export type Mutation_RootInsert_Verification_Requests_OneArgs = {
   object: Verification_Requests_Insert_Input;
-  on_conflict?: Maybe<Verification_Requests_On_Conflict>;
+  on_conflict?: InputMaybe<Verification_Requests_On_Conflict>;
 };
 
 /** mutation root */
 export type Mutation_RootUpdate_AccountsArgs = {
-  _set?: Maybe<Accounts_Set_Input>;
+  _set?: InputMaybe<Accounts_Set_Input>;
   where: Accounts_Bool_Exp;
 };
 
 /** mutation root */
 export type Mutation_RootUpdate_Accounts_By_PkArgs = {
-  _set?: Maybe<Accounts_Set_Input>;
+  _set?: InputMaybe<Accounts_Set_Input>;
   pk_columns: Accounts_Pk_Columns_Input;
 };
 
 /** mutation root */
 export type Mutation_RootUpdate_FeedsArgs = {
-  _set?: Maybe<Feeds_Set_Input>;
+  _set?: InputMaybe<Feeds_Set_Input>;
   where: Feeds_Bool_Exp;
 };
 
 /** mutation root */
 export type Mutation_RootUpdate_Feeds_By_PkArgs = {
-  _set?: Maybe<Feeds_Set_Input>;
+  _set?: InputMaybe<Feeds_Set_Input>;
   pk_columns: Feeds_Pk_Columns_Input;
 };
 
 /** mutation root */
 export type Mutation_RootUpdate_SessionsArgs = {
-  _inc?: Maybe<Sessions_Inc_Input>;
-  _set?: Maybe<Sessions_Set_Input>;
+  _inc?: InputMaybe<Sessions_Inc_Input>;
+  _set?: InputMaybe<Sessions_Set_Input>;
   where: Sessions_Bool_Exp;
 };
 
 /** mutation root */
 export type Mutation_RootUpdate_Sessions_By_PkArgs = {
-  _inc?: Maybe<Sessions_Inc_Input>;
-  _set?: Maybe<Sessions_Set_Input>;
+  _inc?: InputMaybe<Sessions_Inc_Input>;
+  _set?: InputMaybe<Sessions_Set_Input>;
   pk_columns: Sessions_Pk_Columns_Input;
 };
 
 /** mutation root */
 export type Mutation_RootUpdate_UsersArgs = {
-  _set?: Maybe<Users_Set_Input>;
+  _set?: InputMaybe<Users_Set_Input>;
   where: Users_Bool_Exp;
 };
 
 /** mutation root */
 export type Mutation_RootUpdate_Users_By_PkArgs = {
-  _set?: Maybe<Users_Set_Input>;
+  _set?: InputMaybe<Users_Set_Input>;
   pk_columns: Users_Pk_Columns_Input;
 };
 
 /** mutation root */
 export type Mutation_RootUpdate_Verification_RequestsArgs = {
-  _set?: Maybe<Verification_Requests_Set_Input>;
+  _set?: InputMaybe<Verification_Requests_Set_Input>;
   where: Verification_Requests_Bool_Exp;
 };
 
 /** mutation root */
 export type Mutation_RootUpdate_Verification_Requests_By_PkArgs = {
-  _set?: Maybe<Verification_Requests_Set_Input>;
+  _set?: InputMaybe<Verification_Requests_Set_Input>;
   pk_columns: Verification_Requests_Pk_Columns_Input;
 };
 
@@ -760,19 +775,19 @@ export type Query_Root = {
 };
 
 export type Query_RootAccountsArgs = {
-  distinct_on?: Maybe<Array<Accounts_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Accounts_Order_By>>;
-  where?: Maybe<Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Accounts_Order_By>>;
+  where?: InputMaybe<Accounts_Bool_Exp>;
 };
 
 export type Query_RootAccounts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Accounts_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Accounts_Order_By>>;
-  where?: Maybe<Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Accounts_Order_By>>;
+  where?: InputMaybe<Accounts_Bool_Exp>;
 };
 
 export type Query_RootAccounts_By_PkArgs = {
@@ -780,19 +795,19 @@ export type Query_RootAccounts_By_PkArgs = {
 };
 
 export type Query_RootFeedsArgs = {
-  distinct_on?: Maybe<Array<Feeds_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Feeds_Order_By>>;
-  where?: Maybe<Feeds_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Feeds_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Feeds_Order_By>>;
+  where?: InputMaybe<Feeds_Bool_Exp>;
 };
 
 export type Query_RootFeeds_AggregateArgs = {
-  distinct_on?: Maybe<Array<Feeds_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Feeds_Order_By>>;
-  where?: Maybe<Feeds_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Feeds_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Feeds_Order_By>>;
+  where?: InputMaybe<Feeds_Bool_Exp>;
 };
 
 export type Query_RootFeeds_By_PkArgs = {
@@ -800,19 +815,19 @@ export type Query_RootFeeds_By_PkArgs = {
 };
 
 export type Query_RootSessionsArgs = {
-  distinct_on?: Maybe<Array<Sessions_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Sessions_Order_By>>;
-  where?: Maybe<Sessions_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Sessions_Order_By>>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 export type Query_RootSessions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Sessions_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Sessions_Order_By>>;
-  where?: Maybe<Sessions_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Sessions_Order_By>>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 export type Query_RootSessions_By_PkArgs = {
@@ -820,19 +835,19 @@ export type Query_RootSessions_By_PkArgs = {
 };
 
 export type Query_RootUsersArgs = {
-  distinct_on?: Maybe<Array<Users_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Users_Order_By>>;
-  where?: Maybe<Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Users_Order_By>>;
+  where?: InputMaybe<Users_Bool_Exp>;
 };
 
 export type Query_RootUsers_AggregateArgs = {
-  distinct_on?: Maybe<Array<Users_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Users_Order_By>>;
-  where?: Maybe<Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Users_Order_By>>;
+  where?: InputMaybe<Users_Bool_Exp>;
 };
 
 export type Query_RootUsers_By_PkArgs = {
@@ -840,19 +855,19 @@ export type Query_RootUsers_By_PkArgs = {
 };
 
 export type Query_RootVerification_RequestsArgs = {
-  distinct_on?: Maybe<Array<Verification_Requests_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Verification_Requests_Order_By>>;
-  where?: Maybe<Verification_Requests_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Verification_Requests_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Verification_Requests_Order_By>>;
+  where?: InputMaybe<Verification_Requests_Bool_Exp>;
 };
 
 export type Query_RootVerification_Requests_AggregateArgs = {
-  distinct_on?: Maybe<Array<Verification_Requests_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Verification_Requests_Order_By>>;
-  where?: Maybe<Verification_Requests_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Verification_Requests_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Verification_Requests_Order_By>>;
+  where?: InputMaybe<Verification_Requests_Bool_Exp>;
 };
 
 export type Query_RootVerification_Requests_By_PkArgs = {
@@ -896,8 +911,8 @@ export type Sessions_Aggregate_Fields = {
 
 /** aggregate fields of "sessions" */
 export type Sessions_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Sessions_Select_Column>>;
-  distinct?: Maybe<Scalars["Boolean"]>;
+  columns?: InputMaybe<Array<Sessions_Select_Column>>;
+  distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** aggregate avg on columns */
@@ -908,16 +923,16 @@ export type Sessions_Avg_Fields = {
 
 /** Boolean expression to filter rows from the table "sessions". All fields are combined with a logical 'AND'. */
 export type Sessions_Bool_Exp = {
-  _and?: Maybe<Array<Sessions_Bool_Exp>>;
-  _not?: Maybe<Sessions_Bool_Exp>;
-  _or?: Maybe<Array<Sessions_Bool_Exp>>;
-  access_token?: Maybe<String_Comparison_Exp>;
-  created_at?: Maybe<Timestamptz_Comparison_Exp>;
-  expires?: Maybe<Timestamptz_Comparison_Exp>;
-  id?: Maybe<Uuid_Comparison_Exp>;
-  session_token?: Maybe<String_Comparison_Exp>;
-  updated_at?: Maybe<Timestamptz_Comparison_Exp>;
-  user_id?: Maybe<Int_Comparison_Exp>;
+  _and?: InputMaybe<Array<Sessions_Bool_Exp>>;
+  _not?: InputMaybe<Sessions_Bool_Exp>;
+  _or?: InputMaybe<Array<Sessions_Bool_Exp>>;
+  access_token?: InputMaybe<String_Comparison_Exp>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  expires?: InputMaybe<Timestamptz_Comparison_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  session_token?: InputMaybe<String_Comparison_Exp>;
+  updated_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  user_id?: InputMaybe<Int_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "sessions" */
@@ -928,18 +943,18 @@ export enum Sessions_Constraint {
 
 /** input type for incrementing numeric columns in table "sessions" */
 export type Sessions_Inc_Input = {
-  user_id?: Maybe<Scalars["Int"]>;
+  user_id?: InputMaybe<Scalars["Int"]>;
 };
 
 /** input type for inserting data into table "sessions" */
 export type Sessions_Insert_Input = {
-  access_token?: Maybe<Scalars["String"]>;
-  created_at?: Maybe<Scalars["timestamptz"]>;
-  expires?: Maybe<Scalars["timestamptz"]>;
-  id?: Maybe<Scalars["uuid"]>;
-  session_token?: Maybe<Scalars["String"]>;
-  updated_at?: Maybe<Scalars["timestamptz"]>;
-  user_id?: Maybe<Scalars["Int"]>;
+  access_token?: InputMaybe<Scalars["String"]>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
+  expires?: InputMaybe<Scalars["timestamptz"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  session_token?: InputMaybe<Scalars["String"]>;
+  updated_at?: InputMaybe<Scalars["timestamptz"]>;
+  user_id?: InputMaybe<Scalars["Int"]>;
 };
 
 /** aggregate max on columns */
@@ -979,18 +994,18 @@ export type Sessions_Mutation_Response = {
 export type Sessions_On_Conflict = {
   constraint: Sessions_Constraint;
   update_columns?: Array<Sessions_Update_Column>;
-  where?: Maybe<Sessions_Bool_Exp>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "sessions". */
 export type Sessions_Order_By = {
-  access_token?: Maybe<Order_By>;
-  created_at?: Maybe<Order_By>;
-  expires?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-  session_token?: Maybe<Order_By>;
-  updated_at?: Maybe<Order_By>;
-  user_id?: Maybe<Order_By>;
+  access_token?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
+  expires?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  session_token?: InputMaybe<Order_By>;
+  updated_at?: InputMaybe<Order_By>;
+  user_id?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: sessions */
@@ -1018,13 +1033,13 @@ export enum Sessions_Select_Column {
 
 /** input type for updating data in table "sessions" */
 export type Sessions_Set_Input = {
-  access_token?: Maybe<Scalars["String"]>;
-  created_at?: Maybe<Scalars["timestamptz"]>;
-  expires?: Maybe<Scalars["timestamptz"]>;
-  id?: Maybe<Scalars["uuid"]>;
-  session_token?: Maybe<Scalars["String"]>;
-  updated_at?: Maybe<Scalars["timestamptz"]>;
-  user_id?: Maybe<Scalars["Int"]>;
+  access_token?: InputMaybe<Scalars["String"]>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
+  expires?: InputMaybe<Scalars["timestamptz"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  session_token?: InputMaybe<Scalars["String"]>;
+  updated_at?: InputMaybe<Scalars["timestamptz"]>;
+  user_id?: InputMaybe<Scalars["Int"]>;
 };
 
 /** aggregate stddev on columns */
@@ -1122,19 +1137,19 @@ export type Subscription_Root = {
 };
 
 export type Subscription_RootAccountsArgs = {
-  distinct_on?: Maybe<Array<Accounts_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Accounts_Order_By>>;
-  where?: Maybe<Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Accounts_Order_By>>;
+  where?: InputMaybe<Accounts_Bool_Exp>;
 };
 
 export type Subscription_RootAccounts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Accounts_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Accounts_Order_By>>;
-  where?: Maybe<Accounts_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Accounts_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Accounts_Order_By>>;
+  where?: InputMaybe<Accounts_Bool_Exp>;
 };
 
 export type Subscription_RootAccounts_By_PkArgs = {
@@ -1142,19 +1157,19 @@ export type Subscription_RootAccounts_By_PkArgs = {
 };
 
 export type Subscription_RootFeedsArgs = {
-  distinct_on?: Maybe<Array<Feeds_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Feeds_Order_By>>;
-  where?: Maybe<Feeds_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Feeds_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Feeds_Order_By>>;
+  where?: InputMaybe<Feeds_Bool_Exp>;
 };
 
 export type Subscription_RootFeeds_AggregateArgs = {
-  distinct_on?: Maybe<Array<Feeds_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Feeds_Order_By>>;
-  where?: Maybe<Feeds_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Feeds_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Feeds_Order_By>>;
+  where?: InputMaybe<Feeds_Bool_Exp>;
 };
 
 export type Subscription_RootFeeds_By_PkArgs = {
@@ -1162,19 +1177,19 @@ export type Subscription_RootFeeds_By_PkArgs = {
 };
 
 export type Subscription_RootSessionsArgs = {
-  distinct_on?: Maybe<Array<Sessions_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Sessions_Order_By>>;
-  where?: Maybe<Sessions_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Sessions_Order_By>>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 export type Subscription_RootSessions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Sessions_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Sessions_Order_By>>;
-  where?: Maybe<Sessions_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Sessions_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Sessions_Order_By>>;
+  where?: InputMaybe<Sessions_Bool_Exp>;
 };
 
 export type Subscription_RootSessions_By_PkArgs = {
@@ -1182,19 +1197,19 @@ export type Subscription_RootSessions_By_PkArgs = {
 };
 
 export type Subscription_RootUsersArgs = {
-  distinct_on?: Maybe<Array<Users_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Users_Order_By>>;
-  where?: Maybe<Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Users_Order_By>>;
+  where?: InputMaybe<Users_Bool_Exp>;
 };
 
 export type Subscription_RootUsers_AggregateArgs = {
-  distinct_on?: Maybe<Array<Users_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Users_Order_By>>;
-  where?: Maybe<Users_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Users_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Users_Order_By>>;
+  where?: InputMaybe<Users_Bool_Exp>;
 };
 
 export type Subscription_RootUsers_By_PkArgs = {
@@ -1202,19 +1217,19 @@ export type Subscription_RootUsers_By_PkArgs = {
 };
 
 export type Subscription_RootVerification_RequestsArgs = {
-  distinct_on?: Maybe<Array<Verification_Requests_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Verification_Requests_Order_By>>;
-  where?: Maybe<Verification_Requests_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Verification_Requests_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Verification_Requests_Order_By>>;
+  where?: InputMaybe<Verification_Requests_Bool_Exp>;
 };
 
 export type Subscription_RootVerification_Requests_AggregateArgs = {
-  distinct_on?: Maybe<Array<Verification_Requests_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Verification_Requests_Order_By>>;
-  where?: Maybe<Verification_Requests_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Verification_Requests_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Verification_Requests_Order_By>>;
+  where?: InputMaybe<Verification_Requests_Bool_Exp>;
 };
 
 export type Subscription_RootVerification_Requests_By_PkArgs = {
@@ -1223,15 +1238,15 @@ export type Subscription_RootVerification_Requests_By_PkArgs = {
 
 /** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
 export type Timestamptz_Comparison_Exp = {
-  _eq?: Maybe<Scalars["timestamptz"]>;
-  _gt?: Maybe<Scalars["timestamptz"]>;
-  _gte?: Maybe<Scalars["timestamptz"]>;
-  _in?: Maybe<Array<Scalars["timestamptz"]>>;
-  _is_null?: Maybe<Scalars["Boolean"]>;
-  _lt?: Maybe<Scalars["timestamptz"]>;
-  _lte?: Maybe<Scalars["timestamptz"]>;
-  _neq?: Maybe<Scalars["timestamptz"]>;
-  _nin?: Maybe<Array<Scalars["timestamptz"]>>;
+  _eq?: InputMaybe<Scalars["timestamptz"]>;
+  _gt?: InputMaybe<Scalars["timestamptz"]>;
+  _gte?: InputMaybe<Scalars["timestamptz"]>;
+  _in?: InputMaybe<Array<Scalars["timestamptz"]>>;
+  _is_null?: InputMaybe<Scalars["Boolean"]>;
+  _lt?: InputMaybe<Scalars["timestamptz"]>;
+  _lte?: InputMaybe<Scalars["timestamptz"]>;
+  _neq?: InputMaybe<Scalars["timestamptz"]>;
+  _nin?: InputMaybe<Array<Scalars["timestamptz"]>>;
 };
 
 /** columns and relationships of "users" */
@@ -1252,20 +1267,20 @@ export type Users = {
 
 /** columns and relationships of "users" */
 export type UsersFeedsArgs = {
-  distinct_on?: Maybe<Array<Feeds_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Feeds_Order_By>>;
-  where?: Maybe<Feeds_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Feeds_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Feeds_Order_By>>;
+  where?: InputMaybe<Feeds_Bool_Exp>;
 };
 
 /** columns and relationships of "users" */
 export type UsersFeeds_AggregateArgs = {
-  distinct_on?: Maybe<Array<Feeds_Select_Column>>;
-  limit?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  order_by?: Maybe<Array<Feeds_Order_By>>;
-  where?: Maybe<Feeds_Bool_Exp>;
+  distinct_on?: InputMaybe<Array<Feeds_Select_Column>>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  order_by?: InputMaybe<Array<Feeds_Order_By>>;
+  where?: InputMaybe<Feeds_Bool_Exp>;
 };
 
 /** aggregated selection of "users" */
@@ -1285,23 +1300,23 @@ export type Users_Aggregate_Fields = {
 
 /** aggregate fields of "users" */
 export type Users_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Users_Select_Column>>;
-  distinct?: Maybe<Scalars["Boolean"]>;
+  columns?: InputMaybe<Array<Users_Select_Column>>;
+  distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'. */
 export type Users_Bool_Exp = {
-  _and?: Maybe<Array<Users_Bool_Exp>>;
-  _not?: Maybe<Users_Bool_Exp>;
-  _or?: Maybe<Array<Users_Bool_Exp>>;
-  created_at?: Maybe<Timestamptz_Comparison_Exp>;
-  email?: Maybe<String_Comparison_Exp>;
-  email_verified?: Maybe<Timestamptz_Comparison_Exp>;
-  feeds?: Maybe<Feeds_Bool_Exp>;
-  id?: Maybe<Uuid_Comparison_Exp>;
-  image?: Maybe<String_Comparison_Exp>;
-  name?: Maybe<String_Comparison_Exp>;
-  updated_at?: Maybe<Timestamptz_Comparison_Exp>;
+  _and?: InputMaybe<Array<Users_Bool_Exp>>;
+  _not?: InputMaybe<Users_Bool_Exp>;
+  _or?: InputMaybe<Array<Users_Bool_Exp>>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  email?: InputMaybe<String_Comparison_Exp>;
+  email_verified?: InputMaybe<Timestamptz_Comparison_Exp>;
+  feeds?: InputMaybe<Feeds_Bool_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  image?: InputMaybe<String_Comparison_Exp>;
+  name?: InputMaybe<String_Comparison_Exp>;
+  updated_at?: InputMaybe<Timestamptz_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "users" */
@@ -1312,14 +1327,14 @@ export enum Users_Constraint {
 
 /** input type for inserting data into table "users" */
 export type Users_Insert_Input = {
-  created_at?: Maybe<Scalars["timestamptz"]>;
-  email?: Maybe<Scalars["String"]>;
-  email_verified?: Maybe<Scalars["timestamptz"]>;
-  feeds?: Maybe<Feeds_Arr_Rel_Insert_Input>;
-  id?: Maybe<Scalars["uuid"]>;
-  image?: Maybe<Scalars["String"]>;
-  name?: Maybe<Scalars["String"]>;
-  updated_at?: Maybe<Scalars["timestamptz"]>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
+  email?: InputMaybe<Scalars["String"]>;
+  email_verified?: InputMaybe<Scalars["timestamptz"]>;
+  feeds?: InputMaybe<Feeds_Arr_Rel_Insert_Input>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  image?: InputMaybe<Scalars["String"]>;
+  name?: InputMaybe<Scalars["String"]>;
+  updated_at?: InputMaybe<Scalars["timestamptz"]>;
 };
 
 /** aggregate max on columns */
@@ -1359,26 +1374,26 @@ export type Users_Mutation_Response = {
 export type Users_Obj_Rel_Insert_Input = {
   data: Users_Insert_Input;
   /** on conflict condition */
-  on_conflict?: Maybe<Users_On_Conflict>;
+  on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 /** on conflict condition type for table "users" */
 export type Users_On_Conflict = {
   constraint: Users_Constraint;
   update_columns?: Array<Users_Update_Column>;
-  where?: Maybe<Users_Bool_Exp>;
+  where?: InputMaybe<Users_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "users". */
 export type Users_Order_By = {
-  created_at?: Maybe<Order_By>;
-  email?: Maybe<Order_By>;
-  email_verified?: Maybe<Order_By>;
-  feeds_aggregate?: Maybe<Feeds_Aggregate_Order_By>;
-  id?: Maybe<Order_By>;
-  image?: Maybe<Order_By>;
-  name?: Maybe<Order_By>;
-  updated_at?: Maybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
+  email?: InputMaybe<Order_By>;
+  email_verified?: InputMaybe<Order_By>;
+  feeds_aggregate?: InputMaybe<Feeds_Aggregate_Order_By>;
+  id?: InputMaybe<Order_By>;
+  image?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+  updated_at?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: users */
@@ -1406,13 +1421,13 @@ export enum Users_Select_Column {
 
 /** input type for updating data in table "users" */
 export type Users_Set_Input = {
-  created_at?: Maybe<Scalars["timestamptz"]>;
-  email?: Maybe<Scalars["String"]>;
-  email_verified?: Maybe<Scalars["timestamptz"]>;
-  id?: Maybe<Scalars["uuid"]>;
-  image?: Maybe<Scalars["String"]>;
-  name?: Maybe<Scalars["String"]>;
-  updated_at?: Maybe<Scalars["timestamptz"]>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
+  email?: InputMaybe<Scalars["String"]>;
+  email_verified?: InputMaybe<Scalars["timestamptz"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  image?: InputMaybe<Scalars["String"]>;
+  name?: InputMaybe<Scalars["String"]>;
+  updated_at?: InputMaybe<Scalars["timestamptz"]>;
 };
 
 /** update columns of table "users" */
@@ -1435,15 +1450,15 @@ export enum Users_Update_Column {
 
 /** Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'. */
 export type Uuid_Comparison_Exp = {
-  _eq?: Maybe<Scalars["uuid"]>;
-  _gt?: Maybe<Scalars["uuid"]>;
-  _gte?: Maybe<Scalars["uuid"]>;
-  _in?: Maybe<Array<Scalars["uuid"]>>;
-  _is_null?: Maybe<Scalars["Boolean"]>;
-  _lt?: Maybe<Scalars["uuid"]>;
-  _lte?: Maybe<Scalars["uuid"]>;
-  _neq?: Maybe<Scalars["uuid"]>;
-  _nin?: Maybe<Array<Scalars["uuid"]>>;
+  _eq?: InputMaybe<Scalars["uuid"]>;
+  _gt?: InputMaybe<Scalars["uuid"]>;
+  _gte?: InputMaybe<Scalars["uuid"]>;
+  _in?: InputMaybe<Array<Scalars["uuid"]>>;
+  _is_null?: InputMaybe<Scalars["Boolean"]>;
+  _lt?: InputMaybe<Scalars["uuid"]>;
+  _lte?: InputMaybe<Scalars["uuid"]>;
+  _neq?: InputMaybe<Scalars["uuid"]>;
+  _nin?: InputMaybe<Array<Scalars["uuid"]>>;
 };
 
 /** columns and relationships of "verification_requests" */
@@ -1474,21 +1489,21 @@ export type Verification_Requests_Aggregate_Fields = {
 
 /** aggregate fields of "verification_requests" */
 export type Verification_Requests_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Verification_Requests_Select_Column>>;
-  distinct?: Maybe<Scalars["Boolean"]>;
+  columns?: InputMaybe<Array<Verification_Requests_Select_Column>>;
+  distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** Boolean expression to filter rows from the table "verification_requests". All fields are combined with a logical 'AND'. */
 export type Verification_Requests_Bool_Exp = {
-  _and?: Maybe<Array<Verification_Requests_Bool_Exp>>;
-  _not?: Maybe<Verification_Requests_Bool_Exp>;
-  _or?: Maybe<Array<Verification_Requests_Bool_Exp>>;
-  created_at?: Maybe<Timestamptz_Comparison_Exp>;
-  expires?: Maybe<Timestamptz_Comparison_Exp>;
-  id?: Maybe<Uuid_Comparison_Exp>;
-  identifier?: Maybe<String_Comparison_Exp>;
-  token?: Maybe<String_Comparison_Exp>;
-  updated_at?: Maybe<Timestamptz_Comparison_Exp>;
+  _and?: InputMaybe<Array<Verification_Requests_Bool_Exp>>;
+  _not?: InputMaybe<Verification_Requests_Bool_Exp>;
+  _or?: InputMaybe<Array<Verification_Requests_Bool_Exp>>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  expires?: InputMaybe<Timestamptz_Comparison_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  identifier?: InputMaybe<String_Comparison_Exp>;
+  token?: InputMaybe<String_Comparison_Exp>;
+  updated_at?: InputMaybe<Timestamptz_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "verification_requests" */
@@ -1499,12 +1514,12 @@ export enum Verification_Requests_Constraint {
 
 /** input type for inserting data into table "verification_requests" */
 export type Verification_Requests_Insert_Input = {
-  created_at?: Maybe<Scalars["timestamptz"]>;
-  expires?: Maybe<Scalars["timestamptz"]>;
-  id?: Maybe<Scalars["uuid"]>;
-  identifier?: Maybe<Scalars["String"]>;
-  token?: Maybe<Scalars["String"]>;
-  updated_at?: Maybe<Scalars["timestamptz"]>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
+  expires?: InputMaybe<Scalars["timestamptz"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  identifier?: InputMaybe<Scalars["String"]>;
+  token?: InputMaybe<Scalars["String"]>;
+  updated_at?: InputMaybe<Scalars["timestamptz"]>;
 };
 
 /** aggregate max on columns */
@@ -1542,17 +1557,17 @@ export type Verification_Requests_Mutation_Response = {
 export type Verification_Requests_On_Conflict = {
   constraint: Verification_Requests_Constraint;
   update_columns?: Array<Verification_Requests_Update_Column>;
-  where?: Maybe<Verification_Requests_Bool_Exp>;
+  where?: InputMaybe<Verification_Requests_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "verification_requests". */
 export type Verification_Requests_Order_By = {
-  created_at?: Maybe<Order_By>;
-  expires?: Maybe<Order_By>;
-  id?: Maybe<Order_By>;
-  identifier?: Maybe<Order_By>;
-  token?: Maybe<Order_By>;
-  updated_at?: Maybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
+  expires?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  identifier?: InputMaybe<Order_By>;
+  token?: InputMaybe<Order_By>;
+  updated_at?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: verification_requests */
@@ -1578,12 +1593,12 @@ export enum Verification_Requests_Select_Column {
 
 /** input type for updating data in table "verification_requests" */
 export type Verification_Requests_Set_Input = {
-  created_at?: Maybe<Scalars["timestamptz"]>;
-  expires?: Maybe<Scalars["timestamptz"]>;
-  id?: Maybe<Scalars["uuid"]>;
-  identifier?: Maybe<Scalars["String"]>;
-  token?: Maybe<Scalars["String"]>;
-  updated_at?: Maybe<Scalars["timestamptz"]>;
+  created_at?: InputMaybe<Scalars["timestamptz"]>;
+  expires?: InputMaybe<Scalars["timestamptz"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  identifier?: InputMaybe<Scalars["String"]>;
+  token?: InputMaybe<Scalars["String"]>;
+  updated_at?: InputMaybe<Scalars["timestamptz"]>;
 };
 
 /** update columns of table "verification_requests" */
@@ -1604,44 +1619,62 @@ export enum Verification_Requests_Update_Column {
 
 export type InsertFeedMutationVariables = Exact<{
   author_id: Scalars["uuid"];
-  body?: Maybe<Scalars["String"]>;
+  body?: InputMaybe<Scalars["String"]>;
 }>;
 
-export type InsertFeedMutation = { __typename?: "mutation_root" } & {
-  insert_feeds_one?: Maybe<{ __typename?: "feeds" } & Pick<Feeds, "id">>;
+export type InsertFeedMutation = {
+  __typename?: "mutation_root";
+  insert_feeds_one?: { __typename?: "feeds"; id: any } | undefined;
 };
 
 export type UpdateUserMutationVariables = Exact<{
   userId: Scalars["uuid"];
-  name?: Maybe<Scalars["String"]>;
+  name?: InputMaybe<Scalars["String"]>;
 }>;
 
-export type UpdateUserMutation = { __typename?: "mutation_root" } & {
-  update_users?: Maybe<
-    { __typename?: "users_mutation_response" } & {
-      returning: Array<{ __typename?: "users" } & Pick<Users, "id" | "name">>;
-    }
-  >;
+export type UpdateUserMutation = {
+  __typename?: "mutation_root";
+  update_users?:
+    | {
+        __typename?: "users_mutation_response";
+        returning: Array<{
+          __typename?: "users";
+          id: any;
+          name?: string | undefined;
+        }>;
+      }
+    | undefined;
 };
 
 export type FetchUserQueryVariables = Exact<{
   userId: Scalars["uuid"];
 }>;
 
-export type FetchUserQuery = { __typename?: "query_root" } & {
-  users_by_pk?: Maybe<{ __typename?: "users" } & Pick<Users, "id" | "name">>;
+export type FetchUserQuery = {
+  __typename?: "query_root";
+  users_by_pk?:
+    | { __typename?: "users"; id: any; name?: string | undefined }
+    | undefined;
 };
 
 export type FetchFeedsSubscriptionVariables = Exact<{ [key: string]: never }>;
 
-export type FetchFeedsSubscription = { __typename?: "subscription_root" } & {
-  feeds: Array<
-    { __typename?: "feeds" } & Pick<Feeds, "id" | "created_at" | "body"> & {
-        author?: Maybe<
-          { __typename?: "users" } & Pick<Users, "id" | "name" | "image">
-        >;
-      }
-  >;
+export type FetchFeedsSubscription = {
+  __typename?: "subscription_root";
+  feeds: Array<{
+    __typename?: "feeds";
+    id: any;
+    created_at: string;
+    body: string;
+    author?:
+      | {
+          __typename?: "users";
+          id: any;
+          name?: string | undefined;
+          image?: string | undefined;
+        }
+      | undefined;
+  }>;
 };
 
 export const InsertFeedDocument = gql`
@@ -1681,8 +1714,7 @@ export type InsertFeedProps<
     InsertFeedMutation,
     InsertFeedMutationVariables
   >;
-} &
-  TChildProps;
+} & TChildProps;
 export function withInsertFeed<
   TProps,
   TChildProps = {},
@@ -1785,8 +1817,7 @@ export type UpdateUserProps<
     UpdateUserMutation,
     UpdateUserMutationVariables
   >;
-} &
-  TChildProps;
+} & TChildProps;
 export function withUpdateUser<
   TProps,
   TChildProps = {},
@@ -1881,8 +1912,7 @@ export type FetchUserProps<
     FetchUserQuery,
     FetchUserQueryVariables
   >;
-} &
-  TChildProps;
+} & TChildProps;
 export function withFetchUser<
   TProps,
   TChildProps = {},
@@ -1991,8 +2021,7 @@ export type FetchFeedsProps<
     FetchFeedsSubscription,
     FetchFeedsSubscriptionVariables
   >;
-} &
-  TChildProps;
+} & TChildProps;
 export function withFetchFeeds<
   TProps,
   TChildProps = {},
@@ -2054,23 +2083,9 @@ export type ResolverTypeWrapper<T> = Promise<T> | T;
 export type ResolverWithResolve<TResult, TParent, TContext, TArgs> = {
   resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
 };
-
-export type LegacyStitchingResolver<TResult, TParent, TContext, TArgs> = {
-  fragment: string;
-  resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
-};
-
-export type NewStitchingResolver<TResult, TParent, TContext, TArgs> = {
-  selectionSet: string;
-  resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
-};
-export type StitchingResolver<TResult, TParent, TContext, TArgs> =
-  | LegacyStitchingResolver<TResult, TParent, TContext, TArgs>
-  | NewStitchingResolver<TResult, TParent, TContext, TArgs>;
 export type Resolver<TResult, TParent = {}, TContext = {}, TArgs = {}> =
   | ResolverFn<TResult, TParent, TContext, TArgs>
-  | ResolverWithResolve<TResult, TParent, TContext, TArgs>
-  | StitchingResolver<TResult, TParent, TContext, TArgs>;
+  | ResolverWithResolve<TResult, TParent, TContext, TArgs>;
 
 export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   parent: TParent,
@@ -2084,7 +2099,7 @@ export type SubscriptionSubscribeFn<TResult, TParent, TContext, TArgs> = (
   args: TArgs,
   context: TContext,
   info: GraphQLResolveInfo
-) => AsyncIterator<TResult> | Promise<AsyncIterator<TResult>>;
+) => AsyncIterable<TResult> | Promise<AsyncIterable<TResult>>;
 
 export type SubscriptionResolveFn<TResult, TParent, TContext, TArgs> = (
   parent: TParent,
@@ -2170,11 +2185,12 @@ export type DirectiveResolverFn<
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  Int_comparison_exp: Int_Comparison_Exp;
-  Int: ResolverTypeWrapper<Scalars["Int"]>;
   Boolean: ResolverTypeWrapper<Scalars["Boolean"]>;
-  String_comparison_exp: String_Comparison_Exp;
+  Float: ResolverTypeWrapper<Scalars["Float"]>;
+  Int: ResolverTypeWrapper<Scalars["Int"]>;
+  Int_comparison_exp: Int_Comparison_Exp;
   String: ResolverTypeWrapper<Scalars["String"]>;
+  String_comparison_exp: String_Comparison_Exp;
   accounts: ResolverTypeWrapper<Accounts>;
   accounts_aggregate: ResolverTypeWrapper<Accounts_Aggregate>;
   accounts_aggregate_fields: ResolverTypeWrapper<Accounts_Aggregate_Fields>;
@@ -2216,7 +2232,6 @@ export type ResolversTypes = {
   sessions_aggregate: ResolverTypeWrapper<Sessions_Aggregate>;
   sessions_aggregate_fields: ResolverTypeWrapper<Sessions_Aggregate_Fields>;
   sessions_avg_fields: ResolverTypeWrapper<Sessions_Avg_Fields>;
-  Float: ResolverTypeWrapper<Scalars["Float"]>;
   sessions_bool_exp: Sessions_Bool_Exp;
   sessions_constraint: Sessions_Constraint;
   sessions_inc_input: Sessions_Inc_Input;
@@ -2277,11 +2292,12 @@ export type ResolversTypes = {
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  Int_comparison_exp: Int_Comparison_Exp;
-  Int: Scalars["Int"];
   Boolean: Scalars["Boolean"];
-  String_comparison_exp: String_Comparison_Exp;
+  Float: Scalars["Float"];
+  Int: Scalars["Int"];
+  Int_comparison_exp: Int_Comparison_Exp;
   String: Scalars["String"];
+  String_comparison_exp: String_Comparison_Exp;
   accounts: Accounts;
   accounts_aggregate: Accounts_Aggregate;
   accounts_aggregate_fields: Accounts_Aggregate_Fields;
@@ -2316,7 +2332,6 @@ export type ResolversParentTypes = {
   sessions_aggregate: Sessions_Aggregate;
   sessions_aggregate_fields: Sessions_Aggregate_Fields;
   sessions_avg_fields: Sessions_Avg_Fields;
-  Float: Scalars["Float"];
   sessions_bool_exp: Sessions_Bool_Exp;
   sessions_inc_input: Sessions_Inc_Input;
   sessions_insert_input: Sessions_Insert_Input;
@@ -2367,8 +2382,8 @@ export type ResolversParentTypes = {
 };
 
 export type CachedDirectiveArgs = {
-  ttl?: Scalars["Int"];
   refresh?: Scalars["Boolean"];
+  ttl?: Scalars["Int"];
 };
 
 export type CachedDirectiveResolver<
@@ -2576,6 +2591,7 @@ export type FeedsResolvers<
   author?: Resolver<Maybe<ResolversTypes["users"]>, ParentType, ContextType>;
   author_id?: Resolver<ResolversTypes["uuid"], ParentType, ContextType>;
   body?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
+  buka?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   created_at?: Resolver<ResolversTypes["timestamptz"], ParentType, ContextType>;
   id?: Resolver<ResolversTypes["uuid"], ParentType, ContextType>;
   updated_at?: Resolver<ResolversTypes["timestamptz"], ParentType, ContextType>;
@@ -2624,6 +2640,7 @@ export type Feeds_Max_FieldsResolvers<
 > = {
   author_id?: Resolver<Maybe<ResolversTypes["uuid"]>, ParentType, ContextType>;
   body?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  buka?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   created_at?: Resolver<
     Maybe<ResolversTypes["timestamptz"]>,
     ParentType,
@@ -2644,6 +2661,7 @@ export type Feeds_Min_FieldsResolvers<
 > = {
   author_id?: Resolver<Maybe<ResolversTypes["uuid"]>, ParentType, ContextType>;
   body?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  buka?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   created_at?: Resolver<
     Maybe<ResolversTypes["timestamptz"]>,
     ParentType,
@@ -3605,18 +3623,6 @@ export type Resolvers<ContextType = any> = {
   verification_requests_mutation_response?: Verification_Requests_Mutation_ResponseResolvers<ContextType>;
 };
 
-/**
- * @deprecated
- * Use "Resolvers" root object instead. If you wish to get "IResolvers", add "typesPrefix: I" to your config.
- */
-export type IResolvers<ContextType = any> = Resolvers<ContextType>;
 export type DirectiveResolvers<ContextType = any> = {
   cached?: CachedDirectiveResolver<any, any, ContextType>;
 };
-
-/**
- * @deprecated
- * Use "DirectiveResolvers" root object instead. If you wish to get "IDirectiveResolvers", add "typesPrefix: I" to your config.
- */
-export type IDirectiveResolvers<ContextType = any> =
-  DirectiveResolvers<ContextType>;
