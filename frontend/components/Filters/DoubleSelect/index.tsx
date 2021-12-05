@@ -1,37 +1,36 @@
-import { Fragment, useState } from "react";
+import {
+  Fragment,
+  Key,
+  ReactChild,
+  ReactFragment,
+  ReactPortal,
+  useState,
+} from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
+import { Option } from "types/filters";
 
-const people = [
-  { id: 1, name: "Wade Cooper" },
-  { id: 2, name: "Arlene Mccoy" },
-  { id: 3, name: "Devon Webb" },
-  { id: 4, name: "Tom Cook" },
-  { id: 5, name: "Tanya Fox" },
-  { id: 6, name: "Hellen Schmidt" },
-  { id: 7, name: "Caroline Schultz" },
-  { id: 8, name: "Mason Heaney" },
-  { id: 9, name: "Claudie Smitham" },
-  { id: 10, name: "Emil Schaefer" },
-];
-
-function classNames(...classes) {
+function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function FilterDoubleSelect() {
-  const [selectedFirst, setSelectedFirst] = useState(people[3]);
-  const [selectedSecond, setSelectedSecond] = useState(people[3]);
+export default function FilterDoubleSelect({ labelName, selectOptions }: any) {
+  const [selectedFirst, setSelectedFirst] = useState(selectOptions[0]);
+  const [selectedSecond, setSelectedSecond] = useState(
+    selectOptions[selectOptions.length - 1]
+  );
 
   return (
-    <>
-      <span className="block text-sm font-medium text-gray-700">Wiek</span>
+    <div className={"mb-3"}>
+      <span className="block text-sm font-medium text-gray-700">
+        {labelName}
+      </span>
       <div className={"flex"}>
         <Listbox value={selectedFirst} onChange={setSelectedFirst}>
           {({ open }) => (
             <>
-              <div className="mt-1 relative">
-                <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              <div className="mt-1 relative min-w-3/4">
+                <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-16 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                   <span className="block truncate">{selectedFirst.name}</span>
                   <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                     <SelectorIcon
@@ -49,7 +48,7 @@ export default function FilterDoubleSelect() {
                   leaveTo="opacity-0"
                 >
                   <Listbox.Options className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
-                    {people.map((person) => (
+                    {selectOptions.map((person: Option) => (
                       <Listbox.Option
                         key={person.id}
                         className={({ active }) =>
@@ -100,8 +99,8 @@ export default function FilterDoubleSelect() {
         <Listbox value={selectedSecond} onChange={setSelectedSecond}>
           {({ open }) => (
             <>
-              <div className="mt-1 relative">
-                <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              <div className="mt-1 relative min-w-3/4">
+                <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-16 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                   <span className="block truncate">{selectedSecond.name}</span>
                   <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                     <SelectorIcon
@@ -119,7 +118,7 @@ export default function FilterDoubleSelect() {
                   leaveTo="opacity-0"
                 >
                   <Listbox.Options className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
-                    {people.map((person) => (
+                    {selectOptions.map((person: Option) => (
                       <Listbox.Option
                         key={person.id}
                         className={({ active }) =>
@@ -167,6 +166,6 @@ export default function FilterDoubleSelect() {
           )}
         </Listbox>
       </div>
-    </>
+    </div>
   );
 }
